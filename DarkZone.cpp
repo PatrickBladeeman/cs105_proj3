@@ -8,45 +8,65 @@ using namespace std;
 
 
 int main() {
-    // Queue* qptr = new Queue();
-    // string str = "damn ok";
-    // qptr->enqueue(str, 45);
-    // qptr->display();
     Queue q;
-    // string str = "damn ok";
-    // q.enqueue(str, 45);
-    // q.enqueue("wtf bro", 74);
-    // q.display();
-
-    
     ifstream inputFile("DarkZone.txt");
     int capacity;
     inputFile >> capacity;
-
-    // Check if the file is opened successfully
-    if (!inputFile.is_open()) {
-        std::cerr << "Error opening file." << std::endl;
-        return 1;
-    }
-
-    // Loop as long as there's more input
-    while (inputFile) {
-        // Read the name and value from each line
-        string name;
-        int value;
-        // getline(inputFile, line);
-        // line
-        inputFile >> name;
-        inputFile >> value;
-
-      
-        
-        q.enqueue(name, value);
-    }
-
+    cout << "cap: " << capacity << endl;
     // Close the file
+    while (inputFile) {
+        string name;
+        int val;
+        if (inputFile >> name >> val) {
+            q.enqueue(name, val);
+        }
+    }
     inputFile.close();   
-    q.display();
 
+    int capNum = 0;
+    Stack s;
+    int scheduleNum = 0;
+    int numSum = 0;
+    string scheduleName;
+
+    while(!q.isEmpty()) {
+        capNum++;
+        int capLeft = capacity;
+        int totalNum = 0;
+        
+        cout << "Capsule #" << capNum << ":" << endl;
+        
+        q.peek(&scheduleName, &scheduleNum);
+        
+        while (!q.isEmpty() && capLeft >= scheduleNum) {
+            q.dequeue();
+            s.push(scheduleName, scheduleNum);
+            capLeft -= scheduleNum;
+            totalNum += scheduleNum;
+            
+            //cout << "currently checking name: " << scheduleName << " and num: " << scheduleNum << endl;
+            if (!q.isEmpty()) {
+                q.peek(&scheduleName, &scheduleNum);
+                //cout << "currently checking name: " << scheduleName << " and num: " << scheduleNum << endl;
+            }
+        }
+
+        while (!s.isEmpty()) {
+            string outName;
+            int outNum;
+            s.pop(&outName, &outNum);
+            cout << outName << " " << outNum << endl;
+        }
+        cout << "Total guests: " << totalNum << endl; 
+        cout << "Remaining Capacity: " << capLeft << endl;
+        cout << endl;
+        //cout << "util percentage: " << (totalNum / capacity) << endl;
+        numSum += totalNum;
+    }
+    cout << "Overall number of guests: " << numSum << endl;
+    cout << "Overall number of capsules: " << capNum << endl;
+    cout << "Capsule Capacity: " << capacity << endl;
+    cout << "Percentage utilization" << numSum << " / (" << capNum << " * ";
+    cout << capacity << ") = " << (double)numSum / (capNum * capacity) *100 << "%" << endl;
     return 0;
 }

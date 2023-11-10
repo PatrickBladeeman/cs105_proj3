@@ -30,6 +30,7 @@ public:
     // Stack operations
     bool isEmpty();
     void push(string, int);
+    void pop(string*, int*);
     void pop();
     int peek();
     void display();

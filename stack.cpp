@@ -28,17 +28,33 @@ void Stack::push(string nameIn, int numIn) {
     Node* newNode = new Node;
     newNode->name = nameIn;
     newNode->num = numIn;
+    newNode->next = top;
     top = newNode;
 }
 
 // Pop an element from the stack
-void Stack::pop() {
+void Stack::pop(string* outName, int* outNum) {
     if (!isEmpty()) {
+        Node* temp = top;
+        *outName = temp->name;
+        *outNum = temp->num;
+        top = top->next;
+        delete temp;
+    } else {
+        cerr << "The Stack is Empty" << endl;
+    }
+}
+
+void Stack::pop() {
+     if (!isEmpty()) {
         Node* temp = top;
         top = top->next;
         delete temp;
+    } else {
+        cerr << "The Stack is Empty" << endl;
     }
 }
+
 
 // Peek at the top element of the stack
 int Stack::peek() {

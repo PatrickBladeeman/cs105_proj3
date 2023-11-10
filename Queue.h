@@ -16,13 +16,13 @@ using namespace std;
 #define Queue_h
 class Queue {
 
-    private:
-        struct Node {
+    struct Node {
             string name;
             int num;
             Node* next;
         // Node(const T& val) : data(val), next(nullptr) {}
-        }; 
+    }; 
+    private:
         Node* first; // Front of the queue
         Node* last;  // Rear of the queue
 
@@ -45,7 +45,7 @@ class Queue {
         // Display the elements in the queue
         void display();
 
-        int peek();
+        void peek(string*, int*);
 
 };
 

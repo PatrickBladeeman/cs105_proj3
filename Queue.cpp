@@ -31,10 +31,12 @@ void Queue::enqueue(string nameIn, int numIn) {
     Node* newNode = new Node;
     newNode->name = nameIn;
     newNode->num = numIn;
+    newNode->next = nullptr;
     if (isEmpty()) {
         first = last = newNode;
     } else {
         last->next = newNode;
+        last = newNode;
     }
 }
 
@@ -55,18 +57,19 @@ void Queue::display() {
 
     Node* current = first;
     while (current != nullptr) {
-        cout << current->name << " " << current->num << endl;
+        cout << current->name << " | " << current->num << endl;
         current = current->next;
     }
     cout << "\n";
 }
 
-int Queue::peek() {
+void Queue::peek(string* scheduledName, int* scheduledNum) {
     if (!isEmpty()) {
-        return last->num;
+        *scheduledName = first->name;
+        *scheduledNum = first->num;
     } else {
         cerr << "Error: Stack is empty.\n";
-        return -1; //stack empty
+        //stack empty
     }
   
     

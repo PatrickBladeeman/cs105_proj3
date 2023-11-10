@@ -78,4 +78,6 @@ void Stack::display() {
         current = current->next;
     }
     cout << "\n";
+      
+        
 }

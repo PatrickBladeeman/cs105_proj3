@@ -12,7 +12,7 @@ int main() {
     ifstream inputFile("DarkZone.txt");
     int capacity;
     inputFile >> capacity;
-    cout << "cap: " << capacity << endl;
+    // cout << "cap: " << capacity << endl;
     // Close the file
     while (inputFile) {
         string name;
@@ -34,9 +34,9 @@ int main() {
         int capLeft = capacity;
         int totalNum = 0;
         
-        cout << "Capsule #" << capNum << ":" << endl;
+        cout << "Capsule #" << capNum << endl;
         
-        q.peek(&scheduleName, &scheduleNum);
+        q.peek(&scheduleName, &scheduleNum); // check next group
         
         while (!q.isEmpty() && capLeft >= scheduleNum) {
             q.dequeue();
@@ -66,7 +66,7 @@ int main() {
     cout << "Overall number of guests: " << numSum << endl;
     cout << "Overall number of capsules: " << capNum << endl;
     cout << "Capsule Capacity: " << capacity << endl;
-    cout << "Percentage utilization" << numSum << " / (" << capNum << " * ";
-    cout << capacity << ") = " << (double)numSum / (capNum * capacity) *100 << "%" << endl;
+    cout << "Percentage utilization: " << numSum << " / (" << capNum << " * ";
+    cout << capacity << ") = " << setprecision(3) << (double)numSum / (capNum * capacity) *100 << "%" << endl;
     return 0;
 }

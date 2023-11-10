@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+
 // Constructor
 Stack::Stack() {
     top = nullptr;

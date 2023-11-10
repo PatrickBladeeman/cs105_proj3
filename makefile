@@ -1,19 +1,29 @@
-CC = g++
-CFLAGS = -Wall -Wextra -std=c++11
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall -g
 
-all: DarkZone
+# Object files
+QUEUE_OBJ = Queue.o
+STACK_OBJ = Stack.o
+DARKZONE_OBJ = DarkZone.o
 
-DarkZone: Queue.o Stack.o DarkZone.o
-	$(CC) $(CFLAGS) -o DarkZone Queue.o Stack.o DarkZone.o
+# Target executable
+TARGET = DarkZone
 
-Queue.o: Queue.cpp Queue.h
-	$(CC) $(CFLAGS) -c Queue.cpp
+all: $(TARGET)
 
-Stack.o: Stack.cpp Stack.h
-	$(CC) $(CFLAGS) -c Stack.cpp
+$(TARGET): $(QUEUE_OBJ) $(STACK_OBJ) $(DARKZONE_OBJ)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
-DarkZone.o: DarkZone.cpp Queue.h Stack.h
-	$(CC) $(CFLAGS) DarkZone.cpp
+$(QUEUE_OBJ): Queue.cpp Queue.h
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(STACK_OBJ): Stack.cpp Stack.h
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(DARKZONE_OBJ): DarkZone.cpp Queue.h Stack.h
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f DarkZone *.o
+	rm -f $(QUEUE_OBJ) $(STACK_OBJ) $(DARKZONE_OBJ) $(TARGET)
+
+.PHONY: all clean

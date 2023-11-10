@@ -7,9 +7,13 @@ using namespace std;
 
 
 int main() {
-    Queue* qptr = new Queue();
-    qptr->enqueue("damn girl", 45);
-    qptr->display();
+    // Queue* qptr = new Queue();
+    // string str = "damn ok";
+    // qptr->enqueue(str, 45);
+    // qptr->display();
+    Queue q;
+    string str = "damn ok";
+    q.enqueue(str, 45);
+    q.display();
     return 0;
-
 }

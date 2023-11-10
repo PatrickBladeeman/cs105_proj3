@@ -42,7 +42,7 @@ class Queue {
         // Display the elements in the queue
         void display();
 
-        int peekNum();
+        int peek();
 
 };
 

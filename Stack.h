@@ -1,11 +1,25 @@
+#include <stdio.h>
+#include <iostream>
+#include <string.h>
+#include <iomanip>
+#include <fstream>
+using namespace std;
+
 #ifndef Stack_h
 #define Stack_h
-#include "Queue.h"
+
 
 
 
 class Stack {
+
 private:
+    struct Node {
+        string name;
+        int num;
+        Node* next;
+    // Node(const T& val) : data(val), next(nullptr) {}
+    }; 
     Node* top;
 
 public:

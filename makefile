@@ -1,29 +1,20 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -g
+CXXFLAGS = -std=c++11 -Wall
 
-# Object files
-QUEUE_OBJ = Queue.o
-STACK_OBJ = Stack.o
-DARKZONE_OBJ = DarkZone.o
+# List your source files
+SOURCES = DarkZone.cpp Queue.cpp Stack.cpp
 
-# Target executable
-TARGET = DarkZone
+# Derive the object file names from source files
+OBJECTS = $(SOURCES:.cpp=.o)
 
-all: $(TARGET)
+# The main target
+DarkZone: $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(TARGET): $(QUEUE_OBJ) $(STACK_OBJ) $(DARKZONE_OBJ)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+# Rule to build object files from source files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-$(QUEUE_OBJ): Queue.cpp Queue.h
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-$(STACK_OBJ): Stack.cpp Stack.h
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-$(DARKZONE_OBJ): DarkZone.cpp Queue.h Stack.h
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
+# Clean up intermediate files and the executable
 clean:
-	rm -f $(QUEUE_OBJ) $(STACK_OBJ) $(DARKZONE_OBJ) $(TARGET)
-
-.PHONY: all clean
+	rm -f $(OBJECTS) DarkZone

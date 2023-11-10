@@ -8,24 +8,27 @@ using namespace std;
 
 // Node structure for the linked list
 
-struct Node {
-    string name;
-    int num;
-    Node* next;
-    // Node(const T& val) : data(val), next(nullptr) {}
-};
+
 
 // Dynamic Queue class
 
 #ifndef Queue_h
 #define Queue_h
 class Queue {
+
     private:
+        struct Node {
+            string name;
+            int num;
+            Node* next;
+        // Node(const T& val) : data(val), next(nullptr) {}
+        }; 
         Node* first; // Front of the queue
         Node* last;  // Rear of the queue
 
     public:
         // Constructor
+        
         Queue();
 
         // Destructor

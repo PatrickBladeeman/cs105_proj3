@@ -1,4 +1,10 @@
+#include <stdio.h>
+#include <iostream>
+#include <string.h>
+#include <iomanip>
+#include <fstream>
 #include "Queue.h"
+
 using namespace std;
 
 // Node structure for the linked list
@@ -22,13 +28,13 @@ bool Queue::isEmpty() {
 }
 
 void Queue::enqueue(string nameIn, int numIn) {
-    Node newNode;
-    newNode.name = nameIn;
-    newNode.num = numIn;
+    Node* newNode = new Node;
+    newNode->name = nameIn;
+    newNode->num = numIn;
     if (isEmpty()) {
-        first = last = &newNode;
+        first = last = newNode;
     } else {
-        last->next = &newNode;
+        last->next = newNode;
     }
 }
 

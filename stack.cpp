@@ -1,7 +1,10 @@
-#include "Stack.h"
+#include <stdio.h>
 #include <iostream>
+#include <string.h>
+#include <iomanip>
+#include <fstream>
+#include "Stack.h"
 using namespace std;
-
 
 // Constructor
 Stack::Stack() {
@@ -22,10 +25,10 @@ bool Stack::isEmpty() {
 
 // Push an element onto the stack
 void Stack::push(string nameIn, int numIn) {
-    Node newNode;
-    newNode.name = nameIn;
-    newNode.num = numIn;
-    top = &newNode;
+    Node* newNode = new Node;
+    newNode->name = nameIn;
+    newNode->num = numIn;
+    top = newNode;
 }
 
 // Pop an element from the stack

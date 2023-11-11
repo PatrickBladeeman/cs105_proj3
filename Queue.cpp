@@ -10,8 +10,6 @@ using namespace std;
 // Node structure for the linked list
 
 // Dynamic Queue class
-
-
     // Constructor
 
 Queue::Queue() {

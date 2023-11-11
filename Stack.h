@@ -18,7 +18,6 @@ private:
         string name;
         int num;
         Node* next;
-    // Node(const T& val) : data(val), next(nullptr) {}
     }; 
     Node* top;
 

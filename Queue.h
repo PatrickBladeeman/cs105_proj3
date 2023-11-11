@@ -20,7 +20,6 @@ class Queue {
             string name;
             int num;
             Node* next;
-        // Node(const T& val) : data(val), next(nullptr) {}
     }; 
     private:
         Node* first; // Front of the queue
@@ -28,7 +27,6 @@ class Queue {
 
     public:
         // Constructor
-        
         Queue();
 
         // Destructor

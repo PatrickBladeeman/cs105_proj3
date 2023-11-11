@@ -1,15 +1,19 @@
-
+// File Name: Queue.h
+//
+// Authors: Bryan Zhao, Regina Zhou
+// Date: 11/10/2023
+// Assignment Number 3
+// CS 105C Fall 2023
+// Instructor: Dr. Palacios
+//
+// This program schedules groups from waiting queue onto capsules
+// Queue.h initializes the Queue class needed by the program.
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
 #include <iomanip>
 #include <fstream>
 using namespace std;
-
-// Node structure for the linked list
-
-
-
 // Dynamic Queue class
 
 #ifndef Queue_h
@@ -17,13 +21,13 @@ using namespace std;
 class Queue {
 
     struct Node {
-            string name;
-            int num;
-            Node* next;
+            string name; // string storing group name
+            int num; // numeric value storing group size
+            Node* next; // pointer to next node in list
     }; 
     private:
-        Node* first; // Front of the queue
-        Node* last;  // Rear of the queue
+        Node* first; // pointer to front of the queue
+        Node* last;  // pointer to end of the queue
 
     public:
         // Constructor
@@ -31,6 +35,7 @@ class Queue {
 
         // Destructor
         ~Queue();
+        
         // Check if the queue is empty
         bool isEmpty();
 
@@ -40,9 +45,7 @@ class Queue {
         // Dequeue an element
         void dequeue();
 
-        // Display the elements in the queue
-        void display();
-
+        // Check the front element
         void peek(string*, int*);
 
 };

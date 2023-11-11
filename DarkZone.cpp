@@ -19,13 +19,19 @@ void fillCapsule(int &capNum, string &scheduleName, int &scheduleNum,
 void printSummary(int numSum, int capNum, int capacity);
 
 //***********************************************************
+// author: Bryan and Regina
 // main: manages entire execution of program
 // returns: 0
 //***********************************************************
 int main() {
     Queue queue;
-    ifstream inputFile("testcase15.txt");
+    string fileName = "DarkZone15.txt"; // name of input file
+    ifstream inputFile(fileName);
 
+    if(!inputFile.is_open()) {
+        cerr << "Error: File " << fileName << " not found!" << endl;
+        return -1;
+    }
     int capacity; // numeric value for capacity of each capsule
     inputFile >> capacity;
     createQueue(inputFile, queue);
@@ -50,12 +56,14 @@ int main() {
 }
 
 //***********************************************************
+// author: Regina
 // createQueue: creates a queue from the input file
 //
 // ifstream &inputFile: input file passed in
 // Queue &queue: queue that stores the values from input file
 //***********************************************************
 void createQueue(ifstream &inputFile, Queue &queue){
+
     while (inputFile) {
         string name; // string storing group name 
         int val; // numeric value of group size
@@ -67,6 +75,7 @@ void createQueue(ifstream &inputFile, Queue &queue){
 }
 
 //***********************************************************
+// author: Bryan
 // fillCapsule: Fills each capsule with group members
 //
 // int &capNum: reference to integer that stores number of capsules used
@@ -106,6 +115,7 @@ void fillCapsule(int &capNum, string &scheduleName, int &scheduleNum,
 }
 
 //***********************************************************
+// author: Regina
 // printSummary: prints tha summary data
 //
 // int numSum: integer storing total number of guests in queue

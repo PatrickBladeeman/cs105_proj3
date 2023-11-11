@@ -16,13 +16,13 @@
 #include "Stack.h"
 using namespace std;
 
-
+// author: Bryan
 // Stack(): constructor of Stack class; sets top node to NULL
 Stack::Stack() {
     top = nullptr;
 } 
 
-
+// author: Bryan
 // ~Stack(): deconstructor of Stack class; deleted allocated data
 Stack::~Stack() {
     while (!isEmpty()) {
@@ -31,6 +31,7 @@ Stack::~Stack() {
 }
 
 //***********************************************************
+// author: Bryan
 // isEmpty(): determines whether a stack is empty
 //
 // returns: true if stack is empty, false otherwise
@@ -40,6 +41,7 @@ bool Stack::isEmpty() {
 }
 
 //***********************************************************
+// author: Regina
 // push: push an element to stack
 //
 // string nameIn: name of group
@@ -54,6 +56,7 @@ void Stack::push(string nameIn, int numIn) {
 }
 
 //***********************************************************
+// author: Bryan
 // pop(): deletes a node from stack while getting its values
 //
 // string *outName: name of group
@@ -71,6 +74,7 @@ void Stack::pop(string* outName, int* outNum) {
     }
 }
 
+// author: Regina
 // pop(): deletes a node from stack 
 void Stack::pop() {
      if (!isEmpty()) {
@@ -83,7 +87,7 @@ void Stack::pop() {
 }
 
 
-
+// author: Bryan
 // peek: checks the group name and size of the element at the top of stack
 int Stack::peek() {
     if (!isEmpty()) {
@@ -93,4 +97,5 @@ int Stack::peek() {
         return -1; 
     }
 }
+
 

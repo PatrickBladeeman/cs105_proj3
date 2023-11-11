@@ -16,13 +16,14 @@
 #include "Queue.h"
 
 using namespace std;
-
+// author: Bryan
 // Queue(): constructor of Queue class; sets first and last node to NULL
 Queue::Queue() {
     first = nullptr;
     last = nullptr;
 }
 
+// author: Regina
 // ~Queue(): deconstructor of Queue class; deleted allocated data
 Queue::~Queue() {
     while (!isEmpty()) {
@@ -31,6 +32,7 @@ Queue::~Queue() {
 }
 
 //***********************************************************
+// author: Bryan
 // isEmpty(): determines whether a queue is empty
 //
 // returns: true if queue is empty, false otherwise
@@ -40,6 +42,7 @@ bool Queue::isEmpty() {
 }
 
 //***********************************************************
+// author: Regina
 // enqueue: addes an element to queue
 //
 // string nameIn: name of group
@@ -59,6 +62,7 @@ void Queue::enqueue(string nameIn, int numIn) {
 }
 
 //***********************************************************
+// author: Bryan
 // dequeue(): deletes the front node from queue
 //***********************************************************
 void Queue::dequeue() {
@@ -71,6 +75,7 @@ void Queue::dequeue() {
 }
 
 //***********************************************************
+// author: Regina
 // peek: checks the group name and size of the element at the front of queue
 //
 // string* scheduledName: string that should get the group name

@@ -18,9 +18,7 @@ using namespace std;
 #ifndef Stack_h
 #define Stack_h
 
-
-
-
+// author: Bryan and Regina
 class Stack {
 
 private:

@@ -14,7 +14,7 @@
 #include <iomanip>
 #include <fstream>
 using namespace std;
-// Dynamic Queue class
+// author: Bryan and Regina
 
 #ifndef Queue_h
 #define Queue_h
